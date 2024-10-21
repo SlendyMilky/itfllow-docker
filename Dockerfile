@@ -16,7 +16,6 @@ RUN apk update && apk upgrade && \
     apk add --no-cache \
         apache2 \
         apache2-proxy \
-        apache2-ssl \
         php83 \
         php83-intl \
         php83-imap \

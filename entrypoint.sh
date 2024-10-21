@@ -5,7 +5,7 @@ echo "<Directory '/var/www/itflow'>
    Allow from all
    Require all granted
 </Directory>
-<VirtualHost *:443>
+<VirtualHost *:80>
     ServerName $ITFLOW_URL
     DocumentRoot /var/www/itflow/
     LogLevel $ITFLOW_LOG_LEVEL
@@ -49,8 +49,6 @@ if [[ -f /var/www/itflow/config.php ]]; then
 else 
     chmod -R 777 /var/www/itflow
 fi
-
-openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/ssl/apache2/server.key -out /etc/ssl/apache2/server.pem -subj "/CN=*"
 
 # Enable the apache2 sites-available
 httpd -k restart
