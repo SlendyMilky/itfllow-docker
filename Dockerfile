@@ -3,7 +3,7 @@ FROM alpine:latest
 ENV TZ Etc/UTC
 ENV ITFLOW_NAME ITFlow
 ENV ITFLOW_URL demo.itflow.org
-ENV ITFLOW_PORT 443
+ENV ITFLOW_PORT 80
 ENV ITFLOW_REPO github.com/itflow-org/itflow
 ENV ITFLOW_REPO_BRANCH master
 # apache2 log levels: emerg, alert, crit, error, warn, notice, info, debug
