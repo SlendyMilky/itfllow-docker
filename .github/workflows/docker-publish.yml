@@ -23,11 +23,17 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Set lower case owner name
+      run: |
+        echo "OWNER_LC=${OWNER,,}" >>${GITHUB_ENV}
+      env:
+        OWNER: '${{ github.repository_owner }}'
+
     - name: Extract metadata (tags, labels) for Docker
       id: meta
       uses: docker/metadata-action@v5
       with:
-        images: ghcr.io/${{ github.repository }}
+        images: ghcr.io/${{ env.OWNER_LC }}/$(basename ${{ github.repository }})
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v6
@@ -35,5 +41,5 @@ jobs:
         context: .
         push: true
         tags: |
-          ghcr.io/${{ github.repository }}:${{ github.sha }}
-          ghcr.io/${{ github.repository }}:latest
+          ghcr.io/${{ env.OWNER_LC }}/$(basename ${{ github.repository }}):${{ github.sha }}
+          ghcr.io/${{ env.OWNER_LC }}/$(basename ${{ github.repository }}):latest
