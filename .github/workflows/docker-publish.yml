@@ -14,7 +14,8 @@ jobs:
   docker_publish:
     runs-on: ubuntu-latest
 
-    permissions: 
+    permissions:
+      contents: read
       packages: write
 
     steps:
@@ -25,5 +26,3 @@ jobs:
         with:
           image_name: ${{ github.repository }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
-        permissions: 
-          packages: write
