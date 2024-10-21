@@ -53,7 +53,7 @@ fi
 openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/ssl/apache2/server.key -out /etc/ssl/apache2/server.pem -subj "/CN=*"
 
 # Enable the apache2 sites-available
-httpd -k reload
+httpd -k restard
 httpd -k stop
 
 # Execute the command in the dockerfile's CMD
