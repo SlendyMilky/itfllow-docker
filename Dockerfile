@@ -46,4 +46,4 @@ ENTRYPOINT [ "entrypoint.sh" ]
 
 EXPOSE $ITFLOW_PORT
 
-CMD [ "service", "apache2", "start" ]
+CMD [ "/etc/init.d/apache2", "start"]
