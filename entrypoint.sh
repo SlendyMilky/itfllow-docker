@@ -51,8 +51,8 @@ else
 fi
 
 # Enable the apache2 sites-available
-/etc/init.d/apache2 reload
-/etc/init.d/apache2 stop
+rc-service apache2 reload
+rc-service apache2 stop
 
 # Execute the command in the dockerfile's CMD
 exec "$@"

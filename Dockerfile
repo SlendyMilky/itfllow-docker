@@ -28,7 +28,8 @@ RUN apk update && apk upgrade && \
         php83-apache2 \
         git \
         whois \
-        openssl
+        openssl \
+        openrc
 
 RUN sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf && \
     sed -i 's#AllowOverride [Nn]one#AllowOverride All#' /etc/apache2/httpd.conf && \
@@ -46,4 +47,4 @@ ENTRYPOINT [ "entrypoint.sh" ]
 
 EXPOSE $ITFLOW_PORT
 
-CMD [ "/etc/init.d/apache2", "start"]
+CMD [ "rc-service ", "apache2", "start"]
