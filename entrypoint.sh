@@ -47,7 +47,7 @@ if [[ -f /var/www/itflow/config.php ]]; then
     find /var/www/itflow -type f -exec chmod 664 {} \;
     chmod 640 /var/www/itflow/config.php
 else 
-    chmod -R 777 /var/www/itflow
+    chmod -R 775 /var/www/itflow
 fi
 
 # Enable the apache2 sites-available
