@@ -12,7 +12,7 @@ ENV ITFLOW_DB_HOST itflow-db
 ENV ITFLOW_DB_PASS null
 
 
-RUN apk update && apk upgrade \
+RUN apk update && apk upgrade && \
     apk add --no-cache \
         apache2 \
         apache2-proxy \
