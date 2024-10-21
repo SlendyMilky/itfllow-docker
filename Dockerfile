@@ -46,4 +46,4 @@ ENTRYPOINT [ "entrypoint.sh" ]
 
 EXPOSE $ITFLOW_PORT
 
-CMD [ "httpd -k start"]
+CMD [ "httpd", "-k", "start"]
