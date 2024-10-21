@@ -37,6 +37,8 @@ WORKDIR /var/www/localhost/htdocs
 
 COPY entrypoint.sh /usr/bin/
 
+RUN chmod +x /usr/bin/entrypoint.sh
+
 RUN ln -sf /dev/stdout /var/log/apache2/access.log && ln -sf /dev/stderr /var/log/apache2/error.log
 
 ENTRYPOINT [ "entrypoint.sh" ]
