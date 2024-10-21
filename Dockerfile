@@ -47,4 +47,4 @@ ENTRYPOINT [ "entrypoint.sh" ]
 
 EXPOSE $ITFLOW_PORT
 
-CMD [ "rc-service ", "apache2", "start"]
+CMD [ "httpd", "-k", "start"]

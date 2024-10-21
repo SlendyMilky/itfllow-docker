@@ -50,9 +50,11 @@ else
     chmod -R 777 /var/www/itflow
 fi
 
+openssl req -x509 -nodes -days 3650 -newkey rsa:2048 -keyout /etc/ssl/apache2/server.key -out /etc/ssl/apache2/server.pem -subj "/CN=*"
+
 # Enable the apache2 sites-available
-rc-service apache2 reload
-rc-service apache2 stop
+httpd -k reload
+httpd -k stop
 
 # Execute the command in the dockerfile's CMD
 exec "$@"
