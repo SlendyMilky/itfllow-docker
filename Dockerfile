@@ -31,9 +31,10 @@ RUN apk update && apk upgrade && \
         openssl
 
 RUN sed -i '/LoadModule rewrite_module/s/^#//g' /etc/apache2/httpd.conf && \
-    sed -i 's#AllowOverride [Nn]one#AllowOverride All#' /etc/apache2/httpd.conf
+    sed -i 's#AllowOverride [Nn]one#AllowOverride All#' /etc/apache2/httpd.conf && \
+    mkdir /var/www/itflow
 
-WORKDIR /var/www/localhost/htdocs
+WORKDIR /var/www/itflow
 
 COPY entrypoint.sh /usr/bin/
 
