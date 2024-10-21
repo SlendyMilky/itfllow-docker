@@ -5,7 +5,7 @@ echo "<Directory '/var/www/itflow'>
    Allow from all
    Require all granted
 </Directory>
-<VirtualHost *:80>
+<VirtualHost *:8080>
     ServerName $ITFLOW_URL
     DocumentRoot /var/www/itflow/
     LogLevel $ITFLOW_LOG_LEVEL
